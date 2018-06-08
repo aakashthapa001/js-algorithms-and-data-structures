@@ -7,6 +7,23 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-function palindrome(str) {}
+// Solution 2 - array helper: .every()
+function palindrome(str) {
+  // Lowercase the string and use the RegExp to remove unwanted characters from it
+  // const re = /[\W_]/g; // or var re = /[^A-Za-z0-9]/g;
+  // const lowerStr = str.toLowerCase().replace(re, '');
+  
+  return str.split('').every((char, i) => {
+    return char === str[str.length - i - 1];
+  });
+}
+
+// Solution 1 - .split(), .reverse(), .join()
+// function palindrome(str) {
+  // Step 1. Lowercase the string and use the RegExp to remove unwanted characters from it
+  // const re = /[\W_]/g; // or var re = /[^A-Za-z0-9]/g;
+  // const lowerStr = str.toLowerCase().replace(re, '');
+  // const reversed = str.split('').reverse().join(''); 
+// }
 
 module.exports = palindrome;
